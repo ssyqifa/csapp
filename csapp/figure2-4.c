@@ -23,12 +23,37 @@ void show_pointer(void *x)
 	show_bytes((byte_pointer) &x, sizeof(void *));
 }
 
+void test_show_bytes(int val)
+{
+	int ival = val;
+	float fval = (float)ival;
+	int *pval = &val;
+	show_int(ival);
+	show_float(ival);
+	show_pointer(pval);
+}
 int main()
 {
-	int i[3] = {1,2,3};
-	show_int(i);
-	int f = 5.0;
-	show_float(f);
-	show_pointer(i);
+	//Í¼2-5
+	//test_show_bytes(12345);
+
+	//2.1.5 ±íÊ¾×Ö·û´®
+	//show_bytes("12345", 6);
+
+	/* Á·Ï°Ìâ2.5
+	int val = 0x87654321;
+	byte_pointer valp = (byte_pointer)&val;
+	show_bytes(valp, 1);
+	show_bytes(valp,2);
+	show_bytes(valp, 3);
+	show_bytes(valp, 4);
+	*/
+
+	//Á·Ï°Ìâ2.7
+	/*
+	const char *s = "abcdef";
+	show_bytes((byte_pointer)s, strlen(s));
+	*/
+
 	return 0;
 }
